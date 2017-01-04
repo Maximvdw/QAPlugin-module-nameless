@@ -154,7 +154,7 @@ public class ReportUserModule extends AIModule {
         String reportedName = params.get("reported");
         OfflinePlayer reported = Bukkit.getOfflinePlayer(reportedName);
         if (reported == null) {
-            return ((IntentResponse.TextResponse) event.getDefaultResponses().get(1)).getSpeechTexts().get(0);
+            event.getResponse(1);
         }
 
 
@@ -165,7 +165,7 @@ public class ReportUserModule extends AIModule {
         ReportManager reportManager = api.getReportManager();
         User reporter = userManager.getUserByUUID(player.getUniqueId().toString());
         if (reporter == null) {
-            return ((IntentResponse.TextResponse) event.getDefaultResponses().get(2)).getSpeechTexts().get(0);
+            event.getResponse(2);
         }
 
         String content = params.get("content");
@@ -176,8 +176,8 @@ public class ReportUserModule extends AIModule {
         try {
             reportManager.createReport(reporter, reported.getName(), reported.getUniqueId().toString(), content);
         } catch (OpenReportException e) {
-            return ((IntentResponse.TextResponse) event.getDefaultResponses().get(3)).getSpeechTexts().get(0);
+            event.getResponse(3);
         }
-        return ((IntentResponse.TextResponse) event.getDefaultResponses().get(0)).getSpeechTexts().get(0);
+        return event.getResponse(0);
     }
 }
