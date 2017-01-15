@@ -2,6 +2,7 @@ package be.maximvdw.qaplugin.api;
 
 import be.maximvdw.qaplugin.modules.api.NamelessAPI;
 import be.maximvdw.qaplugin.modules.api.report.ReportManager;
+import be.maximvdw.qaplugin.modules.api.report.exceptions.OpenReportException;
 import be.maximvdw.qaplugin.modules.api.user.User;
 import be.maximvdw.qaplugin.modules.api.user.UserManager;
 import org.junit.Test;
@@ -44,7 +45,7 @@ public class NamelessAPITest {
     }
 
     @Test
-    public void createReportTest(){
+    public void createReportTest() throws OpenReportException {
         NamelessAPI api = new NamelessAPI("localhost","GsDUwQj5LNW827lCZ9SnKrHi3ePIdXtv");
         UserManager userManager = api.getUserManager();
         User user = userManager.getUserByUUID("2523cb77-28a5-4816-b1bf-b65a83fd7d0a");

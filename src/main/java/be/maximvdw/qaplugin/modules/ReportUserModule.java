@@ -4,6 +4,10 @@ import be.maximvdw.qaplugin.api.AIModule;
 import be.maximvdw.qaplugin.api.AIQuestionEvent;
 import be.maximvdw.qaplugin.api.QAPluginAPI;
 import be.maximvdw.qaplugin.api.ai.*;
+import be.maximvdw.qaplugin.api.annotations.ModuleAuthor;
+import be.maximvdw.qaplugin.api.annotations.ModuleDescription;
+import be.maximvdw.qaplugin.api.annotations.ModuleName;
+import be.maximvdw.qaplugin.api.annotations.ModuleVersion;
 import be.maximvdw.qaplugin.api.exceptions.FeatureNotEnabled;
 import be.maximvdw.qaplugin.modules.api.NamelessAPI;
 import be.maximvdw.qaplugin.modules.api.report.ReportManager;
@@ -21,10 +25,13 @@ import java.util.Map;
  * <p>
  * Created by maxim on 03-Jan-17.
  */
+@ModuleName("nameless.report.user")
+@ModuleAuthor("Maximvdw")
+@ModuleVersion("1.1.0")
+@ModuleDescription("Ask the assistant to report a user")
 public class ReportUserModule extends AIModule {
-    public ReportUserModule() {
-        super("nameless.report.user", "Maximvdw", "Ask the assistant to report a user");
 
+    public ReportUserModule() {
         Entity confirmation = new Entity("confirmation")
                 .addEntry(new EntityEntry("YES")
                         .addSynonym("yes")
@@ -176,7 +183,7 @@ public class ReportUserModule extends AIModule {
         try {
             reportManager.createReport(reporter, reported.getName(), reported.getUniqueId().toString(), content);
         } catch (OpenReportException e) {
-            event.getResponse(3);
+            return event.getResponse(3);
         }
         return event.getResponse(0);
     }

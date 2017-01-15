@@ -3,6 +3,10 @@ package be.maximvdw.qaplugin.modules;
 import be.maximvdw.qaplugin.api.AIModule;
 import be.maximvdw.qaplugin.api.AIQuestionEvent;
 import be.maximvdw.qaplugin.api.QAPluginAPI;
+import be.maximvdw.qaplugin.api.annotations.ModuleAuthor;
+import be.maximvdw.qaplugin.api.annotations.ModuleDescription;
+import be.maximvdw.qaplugin.api.annotations.ModuleName;
+import be.maximvdw.qaplugin.api.annotations.ModuleVersion;
 import be.maximvdw.qaplugin.question.AnswerLine;
 import be.maximvdw.qaplugin.question.DynamicResponse;
 import be.maximvdw.qaplugin.question.Question;
@@ -14,10 +18,12 @@ import org.bukkit.entity.Player;
  * <p>
  * Created by maxim on 03-Jan-17.
  */
+@ModuleName("nameless.configure")
+@ModuleAuthor("Maximvdw")
+@ModuleVersion("1.1.0")
+@ModuleDescription("Configure the Nameless module")
 public class ConfigureModule extends AIModule {
     public ConfigureModule() {
-        super("nameless.configure", "Maximvdw", "Configure the Nameless module");
-
         Question configureURL = new Question()
                 .addQuestion(new QuestionLine("set nameless.site.url="));
         configureURL.setName("nameless.configure.site.url");
