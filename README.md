@@ -21,6 +21,6 @@ in the config for api.ai
 1. /qaplugin module add NamelessReport
 1. Check the console, it should say "loaded module ..."
 2. Say <trigger>, set nameless.site.url=yoursite.com
-Say <trigger>, set nameless.api.key=YourAPIKey
-The settings won't be seen by other players
+2. Say <trigger>, set nameless.api.key=YourAPIKey
+2. ![](http://i.mvdw-software.com/2017-01-03_23-55-28.png)The settings won't be seen by other players
 1. Ask something like "<trigger> what is the faction name?"
